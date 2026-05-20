@@ -2,7 +2,6 @@ import { Github, Linkedin, Mail, FileText, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { useMemo, memo } from "react";
 
-// Memoized social link component
 const SocialLink = memo(({ href, icon, title, className }) => (
   <a
     href={href}
@@ -16,7 +15,6 @@ const SocialLink = memo(({ href, icon, title, className }) => (
 ));
 SocialLink.displayName = "SocialLink";
 
-// Memoized tag component
 const Tag = memo(({ tag }) => (
   <span className="px-4 py-1.5 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all">
     {tag}
@@ -66,10 +64,9 @@ export default memo(function About() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="w-full min-h-[80vh] flex items-center justify-center"
+      className="w-full flex items-center justify-center"
     >
-      <div className="flex flex-col md:flex-row items-center justify-center gap-12 w-full max-w-5xl px-4 py-12">
-        {/* Profile Image */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-12 w-fit max-w-5xl px-4 py-12">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -93,7 +90,7 @@ export default memo(function About() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex-1 flex flex-col items-center md:items-start"
+          className=" flex flex-col items-center md:items-start"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-200/50 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 mb-4">
             <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
@@ -115,11 +112,11 @@ export default memo(function About() {
           </div>
 
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mb-4 text-center md:text-left">
-            I'm a final year student passionate about{" "}
+            I'm a final-year student passionate about{" "}
             <span className="text-foreground font-medium">
               full-stack development, competitive programming, and problem solving
             </span>
-            . I enjoy building scalable web applications and continuously improving my
+            . I enjoy building scalable web applications while continuously improving my
             development and algorithmic skills.
           </p>
 
