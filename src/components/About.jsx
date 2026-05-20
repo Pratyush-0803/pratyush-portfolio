@@ -26,33 +26,25 @@ Tag.displayName = "Tag";
 
 const SOCIAL_LINKS = [
   {
-    href: "https://github.com/shashank2401",
+    href: "https://github.com/Pratyush-0803",
     icon: <Github className="w-5 h-5" />,
     title: "GitHub",
   },
   {
-    href: "https://www.linkedin.com/in/shashankraj2401/",
+    href: "https://www.linkedin.com/in/pratyush-dixit-63a3a32ab/",
     icon: <Linkedin className="w-5 h-5" />,
     title: "LinkedIn",
   },
   {
-    href: "mailto:shashankraj0124@gmail.com",
+    href: "mailto:pratyushdixit385@gmail.com",
     icon: <Mail className="w-5 h-5" />,
     title: "Email",
   },
 ];
 
-const TAGS = [
-  "Competitive Programming",
-  "Data Structures",
-  "Algorithms",
-  "C++",
-  "Problem Solving",
-  "Web Development",
-];
 
 const RESUME_URL =
-  "https://drive.google.com/file/d/1FIq3CNO73-M9GXjIhZAYo49gQGxgmudO/view?usp=sharing";
+  "https://drive.google.com/file/d/1-u0uCzgbR5JDwYJ21Mj4GceUeE058hb2/view?usp=drive_link";
 
 export default memo(function About() {
   const socialLinksElements = useMemo(
@@ -66,11 +58,6 @@ export default memo(function About() {
           className="w-11 h-11 flex items-center justify-center rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:scale-105 transition-all"
         />
       )),
-    []
-  );
-
-  const tagElements = useMemo(
-    () => TAGS.map((tag) => <Tag key={tag} tag={tag} />),
     []
   );
 
@@ -89,15 +76,15 @@ export default memo(function About() {
           transition={{ duration: 0.6 }}
           className="flex-shrink-0 w-40 h-40 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-white dark:border-neutral-900 shadow-md bg-neutral-200 dark:bg-neutral-800"
           tabIndex={0}
-          aria-label="Profile photo of Shashank Raj"
+          aria-label="Profile photo of Pratyush"
         >
           <img
             src="/assets/MyPhotograph.png"
-            alt="Shashank Raj"
+            alt="Pratyush Dixit"
             loading="lazy"
             decoding="async"
             className="object-cover w-full h-full"
-            style={{ aspectRatio: "1/1" }}
+            style={{ aspectRatio: "2/1" }}
           />
         </motion.div>
 
@@ -118,29 +105,23 @@ export default memo(function About() {
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-3 text-foreground text-center md:text-left">
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-600 dark:from-white dark:via-neutral-300 dark:to-neutral-400 bg-clip-text text-transparent">
-              Shashank Raj
+              Pratyush Dixit
             </span>
           </h1>
 
           <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground text-sm mb-2">
             <GraduationCap className="w-4 h-4" />
-            <span>IIT (BHU) Varanasi</span>
+            <span>BTech. NIT Hamirpur</span>
           </div>
 
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mb-4 text-center md:text-left">
-            I'm a passionate student with a strong interest in{" "}
+            I'm a final year student passionate about{" "}
             <span className="text-foreground font-medium">
-              competitive programming
-            </span>{" "}
-            and tackling challenging problems. I love crafting efficient
-            solutions and exploring new technologies. My journey in tech
-            combines rigorous academic training with hands-on project
-            experience.
+              full-stack development, competitive programming, and problem solving
+            </span>
+            . I enjoy building scalable web applications and continuously improving my
+            development and algorithmic skills.
           </p>
-
-          <div className="flex flex-wrap gap-2 mb-4 justify-center md:justify-start">
-            {tagElements}
-          </div>
 
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             {socialLinksElements}
