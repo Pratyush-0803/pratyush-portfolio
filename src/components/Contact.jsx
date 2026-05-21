@@ -5,7 +5,6 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 
-// --- Animation Variants (The "Staggered Entrance" Pattern) ---
 const sectionContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -31,8 +30,6 @@ const itemVariants = {
   },
 };
 
-
-// --- Status Message Component (Unchanged) ---
 const StatusMessage = ({ status, message }) => {
   if (status === "idle") return null;
 
@@ -65,8 +62,6 @@ const StatusMessage = ({ status, message }) => {
   );
 };
 
-
-// --- Main Contact Component ---
 function ContactComponent() {
   const [formState, setFormState] = useState({
     status: "idle",
@@ -118,7 +113,6 @@ function ContactComponent() {
         <motion.div variants={itemVariants} className="flex flex-col items-center text-center">
             <h2 className="text-3xl sm:text-5xl font-bold text-center text-foreground">
               <span className="inline-flex items-center justify-center gap-3">
-                {/* THE FIX: Applying a responsive 'top' utility for perfect alignment */}
                 <Mail className="w-7 h-7 sm:w-9 sm:h-9 text-primary drop-shadow-sm flex-shrink-0 relative top-px sm:top-0.5" />
                 <span>Contact</span>
               </span>
@@ -130,13 +124,13 @@ function ContactComponent() {
 
         <motion.div variants={itemVariants}>
           <a
-            href="mailto:shashankraj0124@gmail.com"
+            href="mailto:pratyushdixit385@gmail.com"
             className="flex justify-center items-center gap-2 text-primary text-lg font-medium hover:underline transition-colors duration-200"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Mail className="w-5 h-5" />
-            shashankraj0124@gmail.com
+            pratyushdixit385@gmail.com
           </a>
         </motion.div>
 

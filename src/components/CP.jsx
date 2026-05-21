@@ -2,8 +2,6 @@ import React, { memo, useMemo } from "react";
 import { ExternalLink, Swords } from "lucide-react";
 import { motion } from "framer-motion";
 
-// --- Animation Variants (The "Staggered Entrance" Pattern) ---
-// Master container for the entire section
 const sectionContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -12,7 +10,6 @@ const sectionContainerVariants = {
   },
 };
 
-// Nested container for lists/grids inside the section
 const listContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -21,7 +18,6 @@ const listContainerVariants = {
   },
 };
 
-// Single variant for all items that animate in
 const itemVariants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
@@ -31,8 +27,6 @@ const itemVariants = {
   },
 };
 
-
-// --- Child Components (Unchanged) ---
 const PlatformCard = React.memo(({ platform }) => (
   <motion.div
     variants={itemVariants}
@@ -48,58 +42,146 @@ const PlatformCard = React.memo(({ platform }) => (
         loading="lazy"
       />
     </div>
-    <div className="text-lg font-semibold text-foreground">{platform.name}</div>
+
+    <a
+      href={platform.profileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-lg font-semibold text-foreground hover:text-primary transition-colors duration-200"
+    >
+      {platform.name}
+    </a>
+
     <div className="text-sm text-muted-foreground mt-1 mb-1">
       <span className="text-foreground/80">Handle:</span>{" "}
-      <a href={platform.profileUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline dark:hover:text-primary-foreground/70 transition">
+      <a
+        href={platform.profileUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-primary hover:underline dark:hover:text-primary-foreground/70 transition"
+      >
         {platform.handle}
       </a>
     </div>
+
     <div className="flex flex-col gap-[2px] text-sm text-muted-foreground mb-3">
       {platform.stats.map((stat, i) => (
         <div key={i}>
           {stat.label}:{" "}
-          <span className="font-medium text-foreground/80">{stat.value}</span>
+          <span className="font-medium text-foreground/80">
+            {stat.value}
+          </span>
         </div>
       ))}
     </div>
-    <a href={platform.profileUrl} target="_blank" rel="noopener noreferrer" className="mt-auto pt-3 flex items-center gap-1 text-primary font-medium text-sm hover:underline dark:hover:text-primary-foreground/70 transition">
+
+    <a
+      href={platform.profileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-auto pt-3 flex items-center gap-1 text-primary font-medium text-sm hover:underline dark:hover:text-primary-foreground/70 transition"
+    >
       <ExternalLink className="w-4 h-4" />
       View Profile
     </a>
   </motion.div>
 ));
+
 PlatformCard.displayName = "PlatformCard";
 
 const HighlightItem = React.memo(({ item }) => (
   <motion.li variants={itemVariants}>
     {item.text}
-    <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline dark:hover:text-primary-foreground/70 font-medium transition">
+    <a
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-primary hover:underline dark:hover:text-primary-foreground/70 font-medium transition"
+    >
       {item.linkText}
     </a>
     {item.rest}
   </motion.li>
 ));
+
 HighlightItem.displayName = "HighlightItem";
 
-
-// --- Main Component ---
 function CompetitiveProgrammingComponent() {
-  const cpPlatforms = useMemo(() => [
-    { name: "Codeforces", logo: "/assets/logos/codeforces.png", handle: "shashank2401", profileUrl: "https://codeforces.com/profile/shashank2401", stats: [{ label: "Max Rating", value: "1600" }, { label: "Rank", value: "Expert" }] },
-    { name: "CodeChef", logo: "/assets/logos/codechef.svg", handle: "shashankraj24", profileUrl: "https://www.codechef.com/users/shashankraj24", stats: [{ label: "Max Rating", value: "1954" }, { label: "Rank", value: "4-Star" }] },
-    { name: "LeetCode", logo: "/assets/logos/leetcode.png", handle: "shashank2401", profileUrl: "https://leetcode.com/u/shashank2401/", stats: [{ label: "Max Rating", value: "2022" }, { label: "Badge", value: "Knight" }] },
-    { name: "AtCoder", logo: "/assets/logos/atcoder.png", handle: "shashank24", profileUrl: "https://atcoder.jp/users/shashank24", stats: [{ label: "Max Rating", value: "927" }, { label: "Rank", value: "6 Kyu" }] },
-  ], []);
+  const cpPlatforms = useMemo(
+    () => [
+      {
+        name: "LeetCode",
+        logo: "/assets/logos/leetcode.png",
+        handle: "pratyushdixit385",
+        profileUrl: "https://leetcode.com/u/pratyushdixit385/",
+        stats: [
+          { label: "Max Rating", value: "1573" },
+          { label: "Badges", value: "15" },
+        ],
+      },
+      {
+        name: "CodeChef",
+        logo: "/assets/logos/codechef.svg",
+        handle: "pratyushdixit",
+        profileUrl: "https://www.codechef.com/users/pratyushdixit",
+        stats: [
+          { label: "Max Rating", value: "1456" },
+          { label: "Rank", value: "2-Star" },
+        ],
+      },
+      {
+        name: "Codeforces",
+        logo: "/assets/logos/codeforces.png",
+        handle: "pratyushdixit385",
+        profileUrl: "https://codeforces.com/profile/pratyushdixit385",
+        stats: [
+          { label: "Max Rating", value: "1171" },
+          { label: "Rank", value: "Newbie" },
+        ],
+      },
+      {
+        name: "GeeksforGeeks",
+        logo: "/assets/logos/gfg.png",
+        handle: "pratyushdixit038",
+        profileUrl: "https://www.geeksforgeeks.org/user/pratyushdixit038/",
+        stats: [
+          { label: "Coding Score", value: "398" },
+          { label: "Rank", value: "356" },
+        ],
+      },
+    ],
+    []
+  );
 
-  const highlights = useMemo(() => [
-    { text: "Solved over ", linkText: "900+ problems", href: "https://codolio.com/profile/shashank24", rest: " across multiple CP platforms, enhancing algorithmic thinking and coding efficiency." },
-    { text: "Participated in more than ", linkText: "100 contests", href: "https://codolio.com/profile/shashank24", rest: ", consistently testing and improving my problem-solving skills." },
-    { text: "Ranked among the top with a ", linkText: "Global Rank of 755", href: "https://codeforces.com/contest/2114/standings/participant/211255102#p211255102", rest: " in Codeforces Round 1027 (Div. 3)." },
-    { text: "Achieved a notable ", linkText: "Global Rank of 849", href: "https://codeforces.com/contest/2090/standings/participant/206688395#p206688395", rest: " in Codeforces Round 1012 (Div. 2)." },
-    { text: "Earned a ", linkText: "Top 100 finish (Rank 99)", href: "https://www.codechef.com/rankings/START154D?itemsPerPage=100&order=asc&page=1&sortBy=rank", rest: " in CodeChef Starters 154 (Div. 4)." },
-    { text: "Demonstrated strong performance with a ", linkText: "Global Rank of 120", href: "https://www.codechef.com/rankings/START187B?itemsPerPage=100&order=asc&page=1&sortBy=rank", rest: " in CodeChef Starters 187 (Div. 2)." },
-  ], []);
+  const highlights = useMemo(
+    () => [
+      {
+        text: "Solved more than ",
+        linkText: "1000+ coding problems",
+        href: "https://codolio.com/profile/pratyushdixit",
+        rest: " across various platforms, strengthening my problem-solving and algorithmic skills.",
+      },
+      {
+        text: "Selected as the ",
+        linkText: "GeeksforGeeks Campus Ambassador",
+        href: "https://www.geeksforgeeks.org/gfg-campus-mantri-program",
+        rest: ", representing the coding community and promoting technical initiatives on campus.",
+      },
+      {
+        text: "Actively participated in ",
+        linkText: "30+ coding contests",
+        href: "https://codolio.com/profile/pratyushdixit",
+        rest: " across multiple competitive programming platforms to improve speed and consistency.",
+      },
+      {
+        text: "Secured a ",
+        linkText: "Global Rank within Top 1000",
+        href: "https://www.codechef.com/START192D",
+        rest: " in CodeChef Starters 192 (Div. 4).",
+      },
+    ],
+    []
+  );
 
   return (
     <div className="w-full min-h-[80vh] flex flex-col items-center justify-center px-4 py-12">
@@ -109,16 +191,17 @@ function CompetitiveProgrammingComponent() {
         animate="visible"
         className="flex flex-col items-center w-full space-y-16"
       >
-        <motion.div variants={itemVariants} className="flex flex-col items-center text-center max-w-2xl">
-          {/* --- THIS IS THE FIXED HEADING --- */}
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col items-center text-center max-w-2xl"
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight flex flex-col sm:flex-row items-center sm:items-baseline justify-center gap-2 sm:gap-4 text-foreground text-center">
             <Swords className="w-8 h-8 text-primary drop-shadow-sm flex-shrink-0" />
             <span>Competitive Programming</span>
           </h2>
+
           <p className="text-lg text-muted-foreground">
-            My competitive programming journey has been filled with challenging
-            problems, thrilling contests, and constant learning. Here you’ll find my
-            profiles, stats, and some highlights from major platforms.
+            Competitive programming has helped me strengthen my problem-solving skills, logical thinking, and consistency through regular contests and practice across multiple coding platforms.
           </p>
         </motion.div>
 
@@ -138,11 +221,6 @@ function CompetitiveProgrammingComponent() {
             <h3 className="text-xl font-semibold text-foreground mb-4">
               Key Highlights
             </h3>
-            <p className="text-base text-muted-foreground mb-4">
-              <a href="https://codolio.com/profile/shashank24" className="text-primary hover:underline dark:hover:text-primary-foreground/70 transition font-medium" target="_blank" rel="noopener noreferrer">
-                View my Codolio Profile for more details
-              </a>
-            </p>
             <motion.ul
               variants={listContainerVariants}
               className="list-disc ml-5 space-y-2 text-base text-muted-foreground"
