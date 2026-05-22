@@ -28,7 +28,7 @@ const SOCIAL_LINKS = [
 ];
 
 const RESUME_URL =
-  "https://drive.google.com/file/d/1-u0uCzgbR5JDwYJ21Mj4GceUeE058hb2/view?usp=drive_link";
+  "https://drive.google.com/file/d/1LFR05v_tMBuuWfoktRyjqD7sAgsBtmyg/view?usp=drive_link";
 
 export default memo(function About() {
   const socialLinksElements = useMemo(
