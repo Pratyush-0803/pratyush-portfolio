@@ -24,11 +24,21 @@ const itemVariants = {
   },
 };
 
+const Tag = memo(({ children }) => {
+  return (
+    <span className="px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200 bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:scale-105 cursor-default">
+      {children}
+    </span>
+  );
+});
+
+Tag.displayName = "Tag";
+
 const ProjectCard = memo(({ project }) => {
   return (
     <motion.div
       variants={itemVariants}
-      className="bg-white/90 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 rounded-2xl shadow p-6 flex flex-col h-full"
+      className="bg-card text-card-foreground border border-border/60 rounded-2xl shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 p-6 flex flex-col h-full"
     >
       <h3 className="text-xl font-bold text-foreground mb-3 leading-tight">
         {project.title}
@@ -40,12 +50,7 @@ const ProjectCard = memo(({ project }) => {
 
       <div className="flex flex-wrap gap-2 mb-5 mt-auto">
         {project.tags.map((tag, tagIndex) => (
-          <span
-            key={tagIndex}
-            className="px-3 py-1 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-600"
-          >
-            {tag}
-          </span>
+          <Tag key={tagIndex}>{tag}</Tag>
         ))}
       </div>
 
@@ -85,18 +90,9 @@ function ProjectsComponent() {
         title: "Hirely",
         desc:
           "Built a MERN-based hiring platform with authentication, role-based access, and responsive dashboards for recruiters and applicants.",
-        tags: [
-          "MongoDB",
-          "Express.js",
-          "React",
-          "Node.js",
-          "JWT",
-        ],
+        tags: ["MongoDB", "Express.js", "React", "Node.js", "JWT"],
         links: [
-          {
-            type: "demo",
-            href: "#",
-          },
+          { type: "demo", href: "#" },
           {
             type: "code",
             href: "https://github.com/Pratyush-0803/Hirely",
@@ -108,18 +104,9 @@ function ProjectsComponent() {
         title: "Leetrix",
         desc:
           "Created a backend platform that converts LeetCode stats into dynamic SVG visualizations with optimized API handling and caching.",
-        tags: [
-          "Node.js",
-          "TypeScript",
-          "GraphQL",
-          "Caching",
-          "Vercel",
-        ],
+        tags: ["Node.js", "TypeScript", "GraphQL", "Caching", "Vercel"],
         links: [
-          {
-            type: "demo",
-            href: "#",
-          },
+          { type: "demo", href: "#" },
           {
             type: "code",
             href: "https://github.com/Pratyush-0803/Leetrix",
@@ -131,13 +118,7 @@ function ProjectsComponent() {
         title: "Electrothon 7.0",
         desc:
           "Contributed to the official Electrothon 7.0 website by improving UI responsiveness and enhancing overall user experience.",
-        tags: [
-          "React",
-          "JavaScript",
-          "Tailwind CSS",
-          "Frontend",
-          "Responsive UI",
-        ],
+        tags: ["React", "JavaScript", "Tailwind CSS", "Frontend", "Responsive UI"],
         links: [
           {
             type: "demo",
@@ -154,17 +135,9 @@ function ProjectsComponent() {
         title: "Spotify Clone",
         desc:
           "Designed a responsive Spotify-inspired music interface with playlists, controls, and modern layouts.",
-        tags: [
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Responsive Design",
-        ],
+        tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
         links: [
-          {
-            type: "demo",
-            href: "#",
-          },
+          { type: "demo", href: "#" },
           {
             type: "code",
             href: "https://github.com/Pratyush-0803/Spotify-Clone",
@@ -176,17 +149,9 @@ function ProjectsComponent() {
         title: "Tic-Tac-Toe Game",
         desc:
           "Built an interactive Tic Tac Toe game featuring turn handling, winner detection, and reset functionality.",
-        tags: [
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Game Logic",
-        ],
+        tags: ["HTML", "CSS", "JavaScript", "Game Logic"],
         links: [
-          {
-            type: "demo",
-            href: "#",
-          },
+          { type: "demo", href: "#" },
           {
             type: "code",
             href: "https://github.com/Pratyush-0803/TicTacToe",
@@ -198,17 +163,9 @@ function ProjectsComponent() {
         title: "Study Sync",
         desc:
           "Developed a modern educational landing page with responsive layouts and clean UI components.",
-        tags: [
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Responsive UI",
-        ],
+        tags: ["HTML", "CSS", "JavaScript", "Responsive UI"],
         links: [
-          {
-            type: "demo",
-            href: "#",
-          },
+          { type: "demo", href: "#" },
           {
             type: "code",
             href: "https://github.com/Pratyush-0803/StudySync",
@@ -237,11 +194,10 @@ function ProjectsComponent() {
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-center mb-10">
-            A collection of projects that reflect my interest in full-stack
-            development, problem solving, and building practical applications.
+            A collection of projects that reflect my interest in full-stack development,
+            problem solving, and building practical applications.
             From modern web platforms to interactive frontend projects, each one
-            helped me explore new technologies and strengthen my development
-            skills.
+            helped me explore new technologies and strengthen my development skills.
           </p>
         </motion.div>
 

@@ -30,7 +30,8 @@ const itemVariants = {
 const PlatformCard = React.memo(({ platform }) => (
   <motion.div
     variants={itemVariants}
-    className="bg-white/90 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 rounded-2xl shadow p-6 flex flex-col items-center text-center h-full"
+    whileHover={{ y: -4 }}
+    className="bg-card text-card-foreground border border-border/60 rounded-2xl shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 p-6 flex flex-col items-center text-center h-full"
   >
     <div className="w-16 h-16 rounded-xl overflow-hidden flex items-center justify-center bg-background shadow border border-border/60 mb-4">
       <img
@@ -58,7 +59,7 @@ const PlatformCard = React.memo(({ platform }) => (
         href={platform.profileUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-primary hover:underline dark:hover:text-primary-foreground/70 transition"
+        className="text-primary hover:text-primary/80 transition-colors"
       >
         {platform.handle}
       </a>
@@ -79,7 +80,7 @@ const PlatformCard = React.memo(({ platform }) => (
       href={platform.profileUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="mt-auto pt-3 flex items-center gap-1 text-primary font-medium text-sm hover:underline dark:hover:text-primary-foreground/70 transition"
+      className="mt-auto pt-3 flex items-center gap-1 text-primary font-medium text-sm hover:underline transition"
     >
       <ExternalLink className="w-4 h-4" />
       View Profile
@@ -90,13 +91,13 @@ const PlatformCard = React.memo(({ platform }) => (
 PlatformCard.displayName = "PlatformCard";
 
 const HighlightItem = React.memo(({ item }) => (
-  <motion.li variants={itemVariants}>
+  <motion.li variants={itemVariants} className="leading-relaxed">
     {item.text}
     <a
       href={item.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-primary hover:underline dark:hover:text-primary-foreground/70 font-medium transition"
+      className="text-primary hover:underline font-medium transition"
     >
       {item.linkText}
     </a>
@@ -171,7 +172,7 @@ function CompetitiveProgrammingComponent() {
         text: "Actively participated in ",
         linkText: "30+ coding contests",
         href: "https://codolio.com/profile/pratyushdixit",
-        rest: " across multiple competitive programming platforms to improve speed and consistency.",
+        rest: " across multiple competitive programming platforms.",
       },
       {
         text: "Secured a ",
@@ -195,13 +196,14 @@ function CompetitiveProgrammingComponent() {
           variants={itemVariants}
           className="flex flex-col items-center text-center max-w-2xl"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight flex flex-col sm:flex-row items-center sm:items-baseline justify-center gap-2 sm:gap-4 text-foreground text-center">
-            <Swords className="w-8 h-8 text-primary drop-shadow-sm flex-shrink-0" />
-            <span>Competitive Programming</span>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 flex items-center gap-3 text-foreground">
+            <Swords className="w-8 h-8 text-primary" />
+            Competitive Programming
           </h2>
 
           <p className="text-lg text-muted-foreground">
-            Competitive programming has helped me strengthen my problem-solving skills, logical thinking, and consistency through regular contests and practice across multiple coding platforms.
+            Competitive programming has helped me strengthen my problem-solving skills,
+            logical thinking, and consistency through regular contests and practice.
           </p>
         </motion.div>
 
@@ -217,10 +219,11 @@ function CompetitiveProgrammingComponent() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="w-full max-w-3xl">
-          <div className="bg-white/90 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 rounded-2xl shadow p-6">
+          <div className="bg-card text-card-foreground border border-border/60 rounded-2xl shadow-sm p-6">
             <h3 className="text-xl font-semibold text-foreground mb-4">
               Key Highlights
             </h3>
+
             <motion.ul
               variants={listContainerVariants}
               className="list-disc ml-5 space-y-2 text-base text-muted-foreground"
@@ -236,4 +239,4 @@ function CompetitiveProgrammingComponent() {
   );
 }
 
-export default React.memo(CompetitiveProgrammingComponent);
+export default memo(CompetitiveProgrammingComponent);
