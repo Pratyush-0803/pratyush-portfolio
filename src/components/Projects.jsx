@@ -165,7 +165,10 @@ function ProjectsComponent() {
           "Developed a modern educational landing page with responsive layouts and clean UI components.",
         tags: ["HTML", "CSS", "JavaScript", "Responsive UI"],
         links: [
-          { type: "demo", href: "#" },
+          {
+            type: "demo",
+            href: "https://studsync.netlify.app/",
+          },
           {
             type: "code",
             href: "https://github.com/Pratyush-0803/StudySync",
