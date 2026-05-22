@@ -118,7 +118,7 @@ function ContactComponent() {
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
-                Whether you want to discuss a project, ask a question, or just say hello, I’d love to hear from you. Fill out the form below or email me directly. Let’s connect!
+                If you’d like to connect, discuss a project, or just talk about ideas, feel free to reach out. I’m always open to new opportunities and conversations.
             </p>
         </motion.div>
 

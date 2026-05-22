@@ -40,7 +40,6 @@ const SOCIAL_LINKS = [
   },
 ];
 
-
 const RESUME_URL =
   "https://drive.google.com/file/d/1-u0uCzgbR5JDwYJ21Mj4GceUeE058hb2/view?usp=drive_link";
 
@@ -85,35 +84,34 @@ export default memo(function About() {
           />
         </motion.div>
 
-        {/* Content */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className=" flex flex-col items-center md:items-start"
+          className="flex flex-col items-center md:items-start"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-200/50 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 mb-4">
             <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-sm font-semibold text-primary uppercase tracking-wide">
+            <span className="text-sm font-semibold text-primary uppercase tracking-wide font-['Outfit']">
               About Me
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-3 text-foreground text-center md:text-left">
+          <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-3 text-foreground text-center md:text-left font-['Outfit']">
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-600 dark:from-white dark:via-neutral-300 dark:to-neutral-400 bg-clip-text text-transparent">
               Pratyush Dixit
             </span>
           </h1>
 
-          <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground text-sm mb-2">
+          <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground text-sm mb-2 font-medium">
             <GraduationCap className="w-4 h-4" />
             <span>BTech. NIT Hamirpur</span>
           </div>
 
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mb-4 text-center md:text-left">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mb-4 text-center md:text-left font-normal">
             I'm a final-year student passionate about{" "}
-            <span className="text-foreground font-medium">
+            <span className="text-foreground font-semibold">
               full-stack development, competitive programming, and problem solving
             </span>
             . I enjoy building scalable web applications while continuously improving my
@@ -122,6 +120,7 @@ export default memo(function About() {
 
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             {socialLinksElements}
+
             <a
               href={RESUME_URL}
               target="_blank"

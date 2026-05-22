@@ -10,18 +10,15 @@ import {
   X,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-
-// Move static data outside component
 const navLinks = [
   { to: "/about", icon: User, text: "About" },
-  { to: "/skills", icon: BrainCircuit, text: "Skills" },
   { to: "/academics", icon: GraduationCap, text: "Education" },
+  { to: "/skills", icon: BrainCircuit, text: "Skills" },
   { to: "/projects", icon: FolderKanban, text: "Projects" },
   { to: "/cp", icon: Swords, text: "CP" },
   { to: "/contact", icon: Mail, text: "Contact" },
 ];
 
-// Animation variants
 const navVariants = {
   closed: {
     x: "100%",
@@ -58,7 +55,6 @@ const overlayVariants = {
   visible: { opacity: 0.4, pointerEvents: "auto" },
 };
 
-// Memoized nav item component
 const NavItem = memo(({ link, onNavClick, isActive }) => {
   const Icon = link.icon;
   return (
@@ -82,7 +78,6 @@ NavItem.displayName = "NavItem";
 const SideNav = memo(({ open, onClose }) => {
   const location = useLocation();
 
-  // Memoize event handlers
   const handleKeyDown = useCallback((e) => {
     if (e.key === "Escape") onClose();
   }, [onClose]);
@@ -107,7 +102,6 @@ const SideNav = memo(({ open, onClose }) => {
     };
   }, [open, handleKeyDown, handleClickOutside]);
 
-  // Memoize nav items to prevent recreation
   const navItems = useMemo(() =>
     navLinks.map((link) => (
       <NavItem
@@ -121,7 +115,6 @@ const SideNav = memo(({ open, onClose }) => {
 
   return (
     <>
-      {/* Overlay */}
       <motion.div
         initial={false}
         animate={open ? "visible" : "hidden"}
@@ -135,7 +128,6 @@ const SideNav = memo(({ open, onClose }) => {
         }}
       />
 
-      {/* Navigation Panel */}
       <motion.nav
         initial={false}
         animate={open ? "open" : "closed"}
@@ -157,8 +149,6 @@ const SideNav = memo(({ open, onClose }) => {
         >
           <X className="w-7 h-7" />
         </motion.button>
-
-        {/* Navigation Links */}
         <ul className="flex-1 space-y-6">
           {navItems}
         </ul>

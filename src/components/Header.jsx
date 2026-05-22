@@ -28,13 +28,23 @@ const navLinks = [
 const Header = memo(({ toggleTheme, currentTheme, onHamburgerClick }) => {
   const location = useLocation();
 
-  const handleThemeToggle = useCallback((e) => {
-    toggleTheme();
-    e.currentTarget.blur();
-  }, [toggleTheme]);
+  const handleThemeToggle = useCallback(
+    (e) => {
+      toggleTheme();
+      e.currentTarget.blur();
+    },
+    [toggleTheme]
+  );
 
-  const ThemeIcon = useMemo(() => (currentTheme === "light" ? Moon : Sun), [currentTheme]);
-  const themeAriaLabel = useMemo(() => `Switch to ${currentTheme === "light" ? "dark" : "light"} mode`, [currentTheme]);
+  const ThemeIcon = useMemo(
+    () => (currentTheme === "light" ? Moon : Sun),
+    [currentTheme]
+  );
+
+  const themeAriaLabel = useMemo(
+    () => `Switch to ${currentTheme === "light" ? "dark" : "light"} mode`,
+    [currentTheme]
+  );
 
   return (
     <motion.header
@@ -44,26 +54,41 @@ const Header = memo(({ toggleTheme, currentTheme, onHamburgerClick }) => {
       className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 sm:px-8 py-4 bg-muted/70 dark:bg-muted/50 backdrop-blur-md shadow-md border-b border-border/40"
       style={{ willChange: "transform", transform: "translate3d(0, 0, 0)" }}
     >
-      <Link to="/" className="text-2xl sm:text-3xl font-extrabold text-primary tracking-wide select-none hover:opacity-80 transition">
-        Pratyush Dixit 
+      <Link
+        to="/"
+        className="text-2xl sm:text-3xl font-extrabold text-primary tracking-wide select-none hover:opacity-80 transition signature-font"
+      >
+        Pratyush Dixit
       </Link>
 
       <nav className="hidden min-[935px]:flex gap-2 sm:gap-4 md:gap-6 items-center">
-        {navLinks.map(link => {
-          const isActive = location.pathname === link.to || (link.to === '/about' && location.pathname === '/');
+        {navLinks.map((link) => {
+          const isActive =
+            location.pathname === link.to ||
+            (link.to === "/about" && location.pathname === "/");
+
           return (
             <Link
               key={link.to}
               to={link.to}
-              className={`px-3 py-1.5 rounded-md text-base font-medium transition-colors duration-150
-                ${isActive
-                  ? "text-primary bg-primary/10 dark:bg-primary/20"
-                  : "text-muted-foreground hover:text-primary hover:bg-primary/5"}`}
+              className={`relative px-3 py-1.5 text-base font-medium transition-colors duration-200
+                ${
+                  isActive
+                    ? "text-primary after:scale-x-100"
+                    : "text-muted-foreground hover:text-primary"
+                }
+                after:content-[''] after:absolute after:left-0 after:bottom-[1px]
+                after:h-[2px] after:w-full after:bg-primary
+                after:rounded-full after:origin-left after:scale-x-0
+                after:transition-transform after:duration-200
+                hover:after:scale-x-100
+              `}
             >
               {link.label}
             </Link>
           );
         })}
+
         <button
           onClick={handleThemeToggle}
           type="button"
@@ -83,6 +108,7 @@ const Header = memo(({ toggleTheme, currentTheme, onHamburgerClick }) => {
         >
           <ThemeIcon className="w-6 h-6" />
         </button>
+
         <button
           type="button"
           onClick={onHamburgerClick}

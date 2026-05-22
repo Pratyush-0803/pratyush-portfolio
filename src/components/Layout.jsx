@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "./Header";
 import SideNav from "./SideNav";
 import Footer from "./Footer";
-import { StaticBackground } from '../App'; // We will export StaticBackground from App.jsx
+import { StaticBackground } from '../App'; 
 
 const Layout = ({ children, theme, toggleTheme, sideNavOpen, setSideNavOpen }) => {
   return (

@@ -106,9 +106,7 @@ const SkillsComponent = memo(function Skills() {
                 Skills & Interests
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-                Here you'll find a snapshot of my technical toolkit and passions. I
-                believe in learning by doing, and my skills reflect a blend of academic
-                depth and hands-on project work.
+                This section gives a quick look at the skills I’ve picked up so far and the areas I enjoy working in. Most of these come from building projects and exploring things while learning.
             </p>
         </motion.div>
         
